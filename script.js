@@ -1,9 +1,11 @@
 let studentName = null;
 let x, p, t, o;
 
+let clearInput = true
 let currentLevel = 0;
 let variablesDefaultValues;
 const tablesContainer = document.querySelector('.tables-container')
+const input = document.querySelector('.form-control');
 
 
 const chineisinhosData = [];
@@ -348,9 +350,15 @@ registerChineisinhoLevel(() => {
 })
 
 
+input.addEventListener('focus', () => {
+    if (clearInput) {
+        input.value = '';
+        clearInput = false;
+    }
+})
+
 document.querySelector('#submitBtn').addEventListener('click', (e) => {
 
-    const input = document.querySelector('.form-control');
     const inputValue = input.value;
     const invalidFeedback = document.querySelector('.invalid-feedback')
 
